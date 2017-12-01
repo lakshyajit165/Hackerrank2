@@ -1,0 +1,26 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+
+int main() {
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */   
+    int n,x,count;
+    cin>>n;
+    int ar[n];
+    for(int i=0;i<n;i++){
+        cin>>ar[i];
+    }
+    for(int j=0;j<=99;j++){
+        count=0;
+        for(int i=0;i<n;i++){
+            if(ar[i]==j)
+                count++;
+        }
+       cout<<count<<" ";     
+    }
+    return 0;
+}

@@ -1,0 +1,56 @@
+StringStream
+
+#include <sstream>
+#include <vector>
+#include <iostream>
+using namespace std;
+
+vector<int> parseInts(string s) {
+   // Complete this function
+    char ch; 
+    stringstream ss(s);
+    
+    vector<int>v;
+    int i;
+
+    while (ss >> i)
+    {
+        v.push_back(i);
+
+        if (ss.peek() == ',')
+            ss.ignore();
+    }
+
+   /* v.push_back(b);
+
+    v.push_back(c);*/
+    return v;
+}
+
+int main() {
+    string str;
+    cin >> str;
+    vector<int> integers = parseInts(str);
+    for(int i = 0; i < integers.size(); i++) {
+        cout << integers[i] << "\n";
+    }
+    
+    return 0;
+}
+
+
+REference:
+
+int peek();
+Peek next character
+Returns the next character in the input sequence, without extracting it: The character is left as the next character to be extracted from the stream.
+
+If any internal state flags is already set before the call or is set during the call, the function returns the end-of-file value (EOF).
+
+Internally, the function accesses the input sequence by first constructing a sentry object (with noskipws set to true). Then (if good), it reads one character from its associated stream buffer object by calling its member function sgetc, and finally destroys the sentry object before returning.
+
+Calling this function sets the value returned by gcount to zero.
+
+LInk:
+
+http://www.cplusplus.com/reference/istream/istream/peek/

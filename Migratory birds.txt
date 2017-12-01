@@ -1,0 +1,43 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int migratoryBirds(int n, vector <int> ar) {
+    // Complete this function
+    int largest,lar_ind,lar_tie,A[5];
+    for(int i=0;i<5;i++)
+        A[i]=0;
+    for(int i=0;i<n;i++){
+        switch(ar[i]){
+            case 1:A[0]++;
+                  break;
+            case 2:A[1]++;
+                  break;
+            case 3:A[2]++;
+                  break;
+            case 4:A[3]++;
+                  break;
+            case 5:A[4]++;
+                  break;
+         }
+    }
+    largest=A[0];
+    for(int i=1;i<5;i++)
+        if(A[i]>largest){
+            largest=A[i];
+            lar_ind=i;
+        }
+    return (lar_ind+1);
+}
+
+int main() {
+    int n;
+    cin >> n;
+    vector<int> ar(n);
+    for(int ar_i = 0; ar_i < n; ar_i++){
+       cin >> ar[ar_i];
+    }
+    int result = migratoryBirds(n, ar);
+    cout << result << endl;
+    return 0;
+}
